@@ -1,36 +1,65 @@
-![BTD Rewards Interface](images/rewards-ui.png)
+<div align="center">
 
 # BTD Rewards
 
-BTD Rewards is a configurable playtime-based reward system for FiveM servers. Players earn active playtime and unlock rewards through a clean, modern NUI interface.
+**A configurable playtime reward system for FiveM servers.**
 
-Rewards can include money, custom `ox_inventory` items, reward keys, and custom code-based rewards.
+Reward active players with items, money, reward keys, and custom server-side actions through a clean and responsive interface.
 
+[Discord Support](https://discord.gg/myGSA5tJks)
 
-## Discord
+</div>
 
+![BTD Rewards Interface](images/rewards-ui.png)
+
+## About
+
+BTD Rewards tracks each player's active playtime and allows them to unlock configurable rewards. It supports both Qbox and standalone servers, with persistent data storage, administrative tools, and server-side protections.
 
 ## Features
 
-* Playtime-based reward tiers
-* Qbox and standalone support
-* `ox_inventory` item rewards
-* Customizable reward items and amounts
+### Reward System
+
+* Configurable playtime reward tiers
+* One-time reward claiming
+* Money and custom item rewards
+* Custom code-based rewards
 * Qbox reward keys
-* `/redeemreward` command with an `ox_lib` input dialog
-* Persistent SQL storage through `oxmysql`
-* Reward keys locked to the correct player
-* One-time reward redemption
 * Configurable reward-key expiration
-* `/setplaytime` admin command with an `ox_lib` dialog
-* ACE and Qbox group permissions
-* `/resetdata` administrative support
-* Discord webhook logs for rewards and administrative actions
+* Player-locked reward keys
+
+### Framework Support
+
+* Qbox support
+* Standalone support
+* `ox_inventory` integration
+* `ox_lib` dialogs and utilities
+* Persistent storage through `oxmysql`
+
+### Administration
+
+* `/setplaytime` admin command
+* `/resetdata` administrative command
+* ACE permission support
+* Qbox group permission support
+* Discord webhook audit logs
+
+### Interface
+
+* Clean and responsive NUI
 * Configurable interface colors
 * Font Awesome icons
-* Responsive NUI design
-* Protection against duplicate rewards
-* Protection against inventory failures
+* Live playtime and reward progress
+* Available and claimed reward states
+
+### Security
+
+* Server-side reward validation
+* Duplicate-claim protection
+* Inventory failure protection
+* Expired key validation
+* Player ownership verification
+* Administrative action logging
 
 ## Requirements
 
@@ -41,11 +70,17 @@ Rewards can include money, custom `ox_inventory` items, reward keys, and custom 
 
 ## Installation
 
-1. Download or clone the repository into your server's `resources` directory.
-2. Import `btd_rewards.sql` into your database.
-3. Configure the shared settings inside `config.lua`.
-4. Configure protected server settings inside `server_config.lua`.
-5. Add the following resources to your `server.cfg`:
+1. Download or clone the repository.
+2. Place `btd_rewards` inside your server's `resources` directory.
+3. Import `btd_rewards.sql` into your database.
+4. Configure the shared settings inside `config.lua`.
+5. Configure the protected server settings inside `server_config.lua`.
+6. Add the resource to your `server.cfg`.
+7. Restart the server.
+
+### Resource Order
+
+Add the following lines to your `server.cfg`:
 
 ```cfg
 ensure ox_lib
@@ -54,15 +89,15 @@ ensure ox_inventory
 ensure btd_rewards
 ```
 
-When using Qbox, make sure `qbx_core` starts before BTD Rewards:
+When using Qbox, ensure `qbx_core` starts before BTD Rewards:
 
 ```cfg
+ensure ox_lib
+ensure oxmysql
 ensure qbx_core
+ensure ox_inventory
 ensure btd_rewards
 ```
-
-6. Configure the required ACE or Qbox group permissions for administrative commands.
-7. Restart the server or start the resource manually.
 
 ## Configuration
 
@@ -90,7 +125,7 @@ Config.Standalone = true
 Config.UIColor = 'cyan'
 ```
 
-### Example Item Reward
+### Item Reward Example
 
 ```lua
 {
@@ -102,38 +137,53 @@ Config.UIColor = 'cyan'
 }
 ```
 
-Set `item` to the registered `ox_inventory` item name. Use `false` when the reward is handled through custom code instead of an inventory item.
+| Property      | Description                                      |
+| ------------- | ------------------------------------------------ |
+| `name`        | Display name shown in the reward interface       |
+| `time`        | Required playtime before the reward is available |
+| `description` | Description displayed beneath the reward         |
+| `item`        | Registered `ox_inventory` item name              |
+| `amount`      | Number of items given to the player              |
+
+Set `item` to `false` when the reward is handled through custom server-side code instead of `ox_inventory`.
 
 ## Commands
 
-| Command         | Description                                                     |
-| --------------- | --------------------------------------------------------------- |
-| `/redeemreward` | Opens an `ox_lib` dialog for redeeming a reward key.            |
-| `/setplaytime`  | Allows authorized administrators to change a player's playtime. |
-| `/resetdata`    | Resets the configured reward data for a player.                 |
+| Command         | Description                                      | Permission |
+| --------------- | ------------------------------------------------ | ---------- |
+| `/redeemreward` | Opens an input dialog for redeeming a reward key | Player     |
+| `/setplaytime`  | Changes a player's recorded playtime             | Admin      |
+| `/resetdata`    | Resets a player's reward data                    | Admin      |
 
-## Security
+## Discord Logging
 
-BTD Rewards includes server-side checks designed to:
+BTD Rewards can send webhook logs for:
 
-* Prevent rewards from being claimed more than once
-* Lock reward keys to the intended player
-* Reject expired reward keys
-* Prevent rewards when inventory insertion fails
-* Record reward claims and administrative actions through Discord webhooks
+* Successful reward claims
+* Reward-key redemptions
+* Playtime changes
+* Player-data resets
+* Failed or rejected reward attempts
+* Other administrative actions
+
+Configure your webhook settings inside `server_config.lua`.
+
+> Do not place private webhook URLs or other sensitive settings inside client-accessible files.
 
 ## Support
 
-If you discover a bug or have a feature suggestion, please open an issue in the GitHub repository and include:
+Need help, found a bug, or have a suggestion?
 
-* A clear description of the issue
+[Join the BTD Development Discord](https://discord.gg/myGSA5tJks)
+
+When reporting an issue, please include:
+
+* A clear description of the problem
 * Steps to reproduce it
-* Relevant console errors
+* Relevant client or server console errors
 * Your selected framework mode
 * Versions of the required dependencies
 
-## License
+## Important
 
-Review the repository's license before modifying, redistributing, or selling this resource.
-
-
+Always review and configure `config.lua` and `server_config.lua` before starting the resource. Make sure every configured reward item exists inside `ox_inventory`.

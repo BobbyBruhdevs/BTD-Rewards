@@ -1,0 +1,67 @@
+// UI CONFIGURATION
+export const uiConfig = {
+    uiColor: 'cyan',
+    resourceName: 'btd-rewards',
+    brand: 'BTD Rewards',
+    eyebrow: 'Player progression',
+    tagline: 'Free store items by playing',
+    availableTitle: 'Reward track',
+    copy: {
+        activeTime: 'Playtime',
+        rewardsClaimed: 'Unlocked',
+        nextReward: 'Next drop',
+        claimed: 'Claimed',
+        available: 'Available',
+        locked: 'Locked',
+        claim: 'Claim reward',
+        alreadyClaimed: 'Already claimed',
+        notAvailable: 'Not yet available',
+        required: 'required',
+        allClaimed: 'All claimed',
+        back: 'Back to rewards',
+        codeEyebrow: 'Reward unlocked',
+        codeTitle: 'Your reward code',
+        codeDescription: 'Your reward is locked in. Keep this code somewhere safe.',
+        codeLabel: 'Permanent code',
+        codeHint: 'This code does not expire',
+        rewardDetails: 'Reward details',
+        reward: 'Reward',
+        claimedAt: 'Claimed at',
+        copyCode: 'Copy code',
+        instructions: 'Important instructions',
+        instructionItems: [
+            'Save this code in a safe place.',
+            'Use the code on the designated platform.',
+            'Each code can only be used once.',
+            'Keep the code confidential.'
+        ],
+        copied: 'Code copied to clipboard.',
+        copyFailed: 'Unable to copy the code.'
+    },
+    theme: {
+        accent: '#ff1e00',
+        accentStrong: '#ff1e00',
+        cyan: '#ff1e00',
+        amber: '#f4bf71',
+        success: '#56d9aa',
+        danger: '#ff7383',
+        panel: 'rgba(8, 25, 38, .97)',
+        header: 'rgba(10, 27, 40, .96)',
+        card: 'rgba(12, 48, 65, .76)',
+        soft: 'rgba(112, 197, 234, .075)',
+        hover: 'rgba(112, 197, 234, .13)',
+        border: 'rgba(132, 220, 255, .14)',
+        borderBright: 'rgba(170, 231, 255, .25)',
+        text: '#f2f9ff',
+        mutedText: '#90a9b9'
+    },
+    layout: {
+        panelWidth: '1060px',
+        codePanelWidth: '820px',
+        panelHeight: '760px',
+        panelRadius: '42px',
+        cardRadius: '30px',
+        controlRadius: '20px',
+        smallRadius: '15px'
+    }
+};

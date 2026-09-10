@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTD Rewards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="theme.css?v=16">
+</head>
+<body>
+    <main class="screen" id="app" aria-hidden="true">
+        <section class="panel" aria-label="Rewards">
+            <div class="ambient ambient--one"></div><div class="ambient ambient--two"></div>
+            <header class="panel-header">
+                <div class="identity"><div><span class="eyebrow" id="eyebrow"></span><h1 id="brand"></h1></div></div>
+                <button class="icon-button" id="closeButton" type="button" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            </header>
+            <div class="panel-scroll">
+                <section class="hero">
+                    <div class="hero-copy">
+                        <span class="section-label">Season rewards</span><h2 id="availableTitle"></h2><p id="tagline"></p>
+                        <div class="hero-progress"><div><span>Your journey</span><strong id="journeyProgress">0%</strong></div><div class="progress progress--hero"><span id="journeyBar"></span></div></div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat"><span class="stat-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span><div><small data-copy="activeTime"></small><strong id="activeTime">0m</strong></div></div>
+                        <div class="stat"><span class="stat-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span><div><small data-copy="rewardsClaimed"></small><strong id="rewardsClaimed">0</strong></div></div>
+                        <div class="stat stat--accent"><span class="stat-icon"><i class="fa-solid fa-dollar-sign" aria-hidden="true"></i></span><div><small data-copy="nextReward"></small><strong id="nextReward">--</strong></div></div>
+                    </div>
+                </section>
+                <div class="content-heading"><div><span class="section-label"></span><h2>Available rewards</h2></div><span class="reward-count" id="rewardCount">0 rewards</span></div>
+                <div class="rewards-grid" id="rewardsGrid"></div>
+            </div>
+        </section>
+    </main>
+    <main class="screen" id="codePage" aria-hidden="true">
+        <section class="panel panel--code" aria-label="Reward code">
+            <div class="ambient ambient--one"></div>
+            <header class="panel-header">
+                <div class="identity"><div class="brand-icon brand-icon--success"><i class="fa-solid fa-check" aria-hidden="true"></i></div><div><span class="eyebrow" id="codeBrand"></span><h1 id="codeTitle"></h1></div></div>
+                <button class="back-button" id="backButton" type="button" data-copy="back"></button>
+            </header>
+            <div class="panel-scroll code-content">
+                <div class="success-state"><span class="success-check"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="section-label">Reward unlocked</span><h2>It’s all yours.</h2><p id="codeDescription"></p></div>
+                <div class="code-card">
+                    <div class="code-card__top"><span id="codeLabel"></span><span>BTD / REWARD</span></div>
+                    <button class="code-value" id="copyCode" type="button"><strong id="codeText"></strong><span id="copyHint"></span></button>
+                    <div class="code-card__bottom"><small id="codeHint"></small><span>Never share publicly</span></div>
+                </div>
+                <div class="code-grid">
+                    <div class="info-card"><div class="content-heading content-heading--small"><div><span class="section-label">Details</span><h2 id="rewardDetailsTitle"></h2></div></div><div class="detail-row"><span data-copy="reward"></span><strong id="codeReward">-</strong></div><div class="detail-row"><span data-copy="claimedAt"></span><strong id="claimedTime">-</strong></div></div>
+                    <div class="info-card instructions"><div class="content-heading content-heading--small"><div><span class="section-label">Good to know</span><h2 id="instructionsTitle"></h2></div></div><ul id="instructionList"></ul></div>
+                </div>
+                <button class="button button--secondary" id="backButtonBottom" type="button" data-copy="back"></button>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="dist/app.js?v=16"></script>
+</body>
+</html>

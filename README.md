@@ -6,6 +6,10 @@ BTD Rewards is a configurable playtime-based reward system for FiveM servers. Pl
 
 Rewards can include money, custom `ox_inventory` items, reward keys, and custom code-based rewards.
 
+
+## Discord
+
+
 ## Features
 
 * Playtime-based reward tiers

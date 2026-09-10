@@ -1,3 +1,5 @@
+![BTD Rewards Interface](images/rewards-ui.png)
+
 # BTD Rewards
 
 BTD Rewards is a configurable playtime-based reward system for FiveM servers. Players earn active playtime and unlock rewards through a clean, modern NUI interface.
@@ -115,10 +117,6 @@ BTD Rewards includes server-side checks designed to:
 * Reject expired reward keys
 * Prevent rewards when inventory insertion fails
 * Record reward claims and administrative actions through Discord webhooks
-
-## Preview
-
-![BTD Rewards Interface](images/rewards-ui.png)
 
 ## Support
 
